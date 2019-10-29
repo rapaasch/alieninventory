@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+         <!--/*/ <th:block th:include="fragments/curiolook.html :: head">
+            </th:block> /*/-->
+        <title>Curio Collection</title>
+    </head>
+    <body>
+        <header>
+            <div th:replace="fragments/curiolook.html :: navbar"></div>
+            
+            <h1>Collected Collectables</h1>
+            <hr>
+        </header>
+        
+        <div class="container">
+            <div>
+                <div class="row w-75" style="margin: 0 auto; text-align: center;">
+                    <p>Welcome to my collection! For my trusted companions, feel free to log in 
+                    and peruse the items I've collected over the course of my travels. Some of you
+                    may even write articles! If you are a stowaway, you may enjoy the featured item
+                    below.</p><br> 
+                    <p style="margin: 0 auto; text-align: center;">Big flashy things have my name written all over them. Well… not yet, 
+                    give me time and a crayon.</p>
+                </div><br>
+                
+                <h3>Featured Item</h3>
+                <div class="card" style="width: 18rem; margin: 0 auto;">
+                    <div class="card-header text-center">
+                        <img src="images/item1.jpg" class="card-img-top">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Normal Spoon</h5>
+                        <p class="card-text">spoonspoonspoonspoonspoonspoonspoonspoonspoonspoonspoonspoonspoonspoonspoonspoon</p>
+                    </div>
+                </div><br>
+
+            </div>
+        </div>
+
+        <div th:replace="fragments/curiolook.html :: includes"></div>
+    </body>
+</html>
+

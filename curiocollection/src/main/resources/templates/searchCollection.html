@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+	<!--/*/ <th:block th:include="fragments/curiolook.html :: head">
+            </th:block> /*/-->
+	<title>Curio Collection</title>
+    </head>
+    <body>
+        <header>
+            <div th:replace="fragments/curiolook.html :: navbar"></div>
+
+            <!--	<h1>Collected Collectables</h1>-->
+            <h1>Search Collection</h1>
+            <hr>
+        </header>
+        <div class="container">
+            <div class="col-lg-12">
+                <!--		<h3>Search Collection</h3>-->
+                <div class="row">
+                    <div class="col text-center m-3">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Item</th>
+                                    <th>Category</th>
+                                    <th>Quantity</th>
+                                    <th>Value</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Metal Helmet</td>
+                                    <td>Metal<br> Holes</td>
+                                    <td>3</td>
+                                    <td>$400 USD</td>
+                                </tr>
+                                <tr th:each="item : ${items}">
+                                    <td th:text="${item.itemName}">Item</td>
+                                    <!--NOT SURE ABOUT THIS CALL YET-->
+                                    <td> <span th:each="category : ${item.categories}" th:text="${category.catName}" style="display:block"></span></td>
+                                    <td th:text="${item.quantity}">Quantity</td>
+                                    <td th:text="${item.value}">Value</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div th:replace="fragments/curiolook.html :: includes"></div>
+    </body>
+</html>
+
+
+

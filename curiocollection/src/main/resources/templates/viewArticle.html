@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--/*/ <th:block th:include="fragments/curiolook.html :: head">
+            </th:block> /*/-->
+        <title>Curio Collection</title>
+    </head>
+    <body>
+        <header>
+            <div th:replace="fragments/curiolook.html :: navbar"></div>
+        </header>
+
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h1 id="articleTitle" th:text="${article.articleTitle}"></h1>
+                </div>
+            </div><br>
+            <div class="row" style="margin: 0 auto; text-align: center;">
+                <div class="col">
+                    <h4 id="author" th:text="${article.author.authorName}"></h4>
+                </div>
+            </div>
+            <div>
+                <p id="articleText" class="m-3" th:text="${article.articleText}"></p>
+            </div>
+        </div>
+
+        <div th:replace="fragments/curiolook.html :: includes"></div>
+    </body>
+</html>

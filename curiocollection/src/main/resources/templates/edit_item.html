@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+    <head>
+        <!--/*/ <th:block th:include="fragments/curiolook.html :: head">
+                </th:block> /*/-->
+        <title>Curio Collection</title>
+    </head>
+    <body>
+        <header>
+            <div th:replace="fragments/curiolook.html :: navbar"></div>
+            <h1>Edit Item</h1>
+            <hr>
+        </header>
+
+        <div class="container">
+            <form action="#" th:action="@{/edit_item}" th:object="${item}" method="post">
+                <div class="row">
+                    <div class="col-2"></div>
+                    <div class="col-8">
+                        <div class="form-group">
+                            <label for="itemName" class="m-2">Name:</label>
+                            <input type="text" required name="itemName" class="form-control m-2" id="itemName"
+                                   th:value="${item.itemName}">
+                        </div>
+                    </div>
+                    <div class="col-2"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2"></div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label for="itemQty" class="m-2">Qty:</label>
+                            <input type="text" name="itemQty" class="form-control m-2" id="itemQty" th:value="${item.quantity}">
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label for="itemValue" class="m-2">Value:</label>
+                            <input type="text" name="itemValue" class="form-control m-2" id="itemValue" th:value="${item.value}">
+                        </div>
+                    </div>
+                    <div class="col-2"></div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="itemCats" class="m-2">Categories:</label>
+                            <select multiple name="itemCats"
+                                    id="itemCats" class="form-control">
+                                <option th:each="category : ${categories}"
+                                        th:value="${category.catId}"
+                                        th:text="${category.catName}"
+                                        categories>
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="loc" class="m-2">Location Found:</label>
+                            <select name="loc"
+                                    id="loc" class="form-control">
+                                <option th:each="location : ${locations}"
+                                        th:value="${location.locId}"
+                                        th:text="${location.locName}"
+                                        categories>
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col">
+                        <label for="date" class="col-3 col-form-label">Date</label>
+                        <div class="col-9">
+                            <input type="date" id="date" name="date" class="form-control" th:value="${date}" required>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="itemDescription" class="m-2">Description:</label>
+                            <textarea class="form-control m-2" id="itemDescription" rows="4"
+                                      th:value="${item.itemAbout}"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="row d-flex justify-content-center">
+                        <input type="hidden" name="itemId" th:value="${item.itemId}"/>
+                        <button type="submit" class="btn btn-primary m-1">Update</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div th:replace="fragments/curiolook.html :: includes"></div>
+    </body>
+</html>

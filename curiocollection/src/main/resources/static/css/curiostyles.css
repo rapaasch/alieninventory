@@ -1,0 +1,49 @@
+h1 {
+    font-family: 'Pacifico', cursive;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 3.625rem;
+}
+
+h3 {
+    font-family: 'Pacifico', cursive;
+    text-align: center;
+    font-size: 1.625rem;
+}
+
+h5 {
+    font-family: 'Roboto', sans-serif;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+}
+
+.main-footer {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border-bottom: 10px solid #003b6f;
+    text-align: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.navbar {
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    padding-bottom: 50px;
+}
+
+#grad1 {
+    height: 5px;
+    background-color: red;
+    background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+}
+
+#previewSubmit {
+    justify-content: center;
+}

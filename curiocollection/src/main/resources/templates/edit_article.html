@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <!--/*/ <th:block th:include="fragments/curiolook.html :: head">
+                </th:block> /*/-->
+                <link rel="stylesheet" type="text/css" href="add_article.css">
+        <title>Edit Article</title>
+    </head>
+    <body>
+        <header>
+            <div th:replace="fragments/curiolook.html :: navbar"></div>
+            <h1>Edit Article</h1>
+            <hr>
+        </header>
+        <form class="container-fluid" action="preview_article" method="POST">
+            <div class="row">
+                <div class="col-lg-10">
+                    <div class="form-group row" style="justify-content: center">
+                        <label for="author" class="col-2 col-form-label">Author Name: </label>
+                        <div class="col-3">
+                            <input type="text" name="authorName" id="authorName" class="form-control" th:value="${article.author.authorName}" readonly/>
+                        </div>
+                        <label for="items" class="col-1 col-form-label">Item(s): </label>
+                        <div class="col-3">
+                            <select multiple id="items" name="items" class="form-control" >
+                                <option th:each="item : ${items}" 
+                                    th:value="${item.itemId}" 
+                                    th:text="${item.itemName}"
+                                    th:selected="${article.items.contains(item)}">
+                                    Item Name</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="form-group row" style="justify-content: center">
+                        <label for="articleTitle" class="col-1 col-form-label">Title: </label>
+                        <div class="col-7">
+                            <input type="text" name="articleTitle" id="articleTitle" class="form-control" th:value="${article.articleTitle}">
+                        </div>
+                    </div>
+                    <br/><br/>
+                    <div class="form-group row" style="justify-content: center">
+                        <label for="articleText" class="col-1 col-form-label">Article: </label>
+                        <div class="col-lg-8">
+                            <textarea name="articleText" id="articleText" class="form-control" th:text="${article.articleText}" style="height: 800px"> 
+                            </textarea>
+                            <br/><br/>
+                        </div>
+                    </div>
+                    <br/>
+                    <input type="hidden" name="authorId" th:value="${article.articleId}"/>
+                    <div class="form-group row" style="justify-content: center">
+                        <button type="submit" class="btn btn-primary btn-lg badge-pill" id="previewSubmit"> Preview </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </form>
+        <div th:replace="fragments/curiolook.html :: includes"></div>
+    </body>
+</html>

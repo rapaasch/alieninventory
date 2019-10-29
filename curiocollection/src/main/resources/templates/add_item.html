@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <!--/*/ <th:block th:include="fragments/curiolook.html :: head">
+            </th:block> /*/-->
+    </head>
+    <body>
+        <header>
+            <div th:replace="fragments/curiolook.html :: navbar"></div>
+            <h1>Add Item</h1>
+            <hr>
+        </header>
+        
+        <div class="container">
+            <form action="add_item" method="POST">
+                <div class="row">
+                    <div class="col-2"></div>
+                    <div class="col-8">
+                        <div class="form-group">
+                            <label for="itemName" class="m-2">Name:</label>
+                            <input type="text" name="itemName" class="form-control m-2" id="itemName">
+                        </div>
+                    </div>
+                    <div class="col-2"></div>
+                </div>
+                <div class="row">
+                    <div class="col-2"></div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label for="itemQty" class="m-2">Qty:</label>
+                            <input type="text" name="itemQty" class="form-control m-2" id="itemQty">
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label for="itemValue" class="m-2">Value:</label>
+                            <input type="text" name="itemValue" class="form-control m-2" id="itemValue">
+                        </div>
+                    </div>
+                    <div class="col-2"></div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <label for="itemCategories" class="m-2">Categories:</label>
+                            <select multiple id="itemCategories" name="itemCategories" class="form-control" >
+                                <option th:each="category : ${categories}" th:value="${category.catId}" th:text="${category.catName}">Item Name</option>
+                            </select>
+                        </div>
+                            <label for="date" class="col-3 col-form-label">Date</label>
+                            <div class="col-9">
+                                <input type="date" id="date" name="date" class="form-control"
+                                       th:value="${date}" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="loc" class="m-2">Location found:</label>
+                                <select id="loc" name="loc" class="form-control" >
+                                    <option th:each="location : ${locations}" th:value="${location.locId}" th:text="${location.locName}">Item Name</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                        <div class="form-group">
+                            <label for="itemDescription" class="m-2">Description:</label>
+                            <textarea class="form-control m-2" id="itemDescription" rows="4" th:value="${itemAbout}"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary m-1">Add Item</button>
+                </div>
+            </form>
+        </div>
+        
+        <div th:replace="fragments/curiolook.html :: includes"></div>
+    </body>
+</html>

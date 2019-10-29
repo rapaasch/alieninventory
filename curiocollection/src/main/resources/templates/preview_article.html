@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+         <!--/*/ <th:block th:include="fragments/curiolook.html :: head">
+            </th:block> /*/-->
+        <title>Preview Article</title>
+    </head>
+    <body>
+        <header>
+            <div th:replace="fragments/curiolook.html :: navbar"></div>
+            
+            <h1>Preview Article</h1>
+            <hr>
+        </header>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-5">
+                    <h3 name="articleTitle" th:text="${article.articleTitle}" th:value="${article.articleTitle}">Article Title</h3>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-lg-8">
+                    <p name="articleText" th:html="${article.articleText}"th:value="${article.articleText}">
+                            
+                    </p>
+                </div>
+            </div>
+            <div class="form-group row">
+            <div class="col-sm-2">
+                <button class="btn btn-primary badge-pill btn-lg" id="articleBack">
+                    <a href="#" th:href="@{/delete(id=${article.articleId})}">Discard</a>
+                </button>
+            </div>
+            <div class="col-sm-2">
+                <button class="btn btn-primary badge-pill btn-lg" id="articlePublish">
+                    <a href="/searchArticles">Publish</a>
+                </button>
+            </div>
+        </div>
+        </div>
+        <div th:replace="fragments/curiolook.html :: includes"></div>
+    </body>
+</html>
